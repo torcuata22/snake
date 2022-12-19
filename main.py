@@ -6,17 +6,16 @@ screen.bgcolor("black")
 screen.title("The Snake Game")
 
 #Step1: Create snake body (three squares, one next to the other)
-#turtle = 20X20 px
-segment1 = Turtle("square")
-segment1.color("white")
+#turtle = 20X20 px, I can create with for loop, using tuples for positions:
+starting_positions = [(0,0), (-20,0), (-40, 0)]
 
-segment2 = Turtle("square")
-segment2.color("white")
-segment2.goto(x=-20, y=0)
+for position in starting_positions:
+    new_segment = Turtle("square")
+    new_segment.color("white")
+    new_segment.goto(position)
+    
 
-segment3 = Turtle("square")
-segment3.color("white")
-segment3.goto(x=-40, y=0)
+
 
 
 
