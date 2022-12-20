@@ -2,6 +2,10 @@ from turtle import Turtle
 #turtle = 20X20 px, I can create with for loop, using tuples for positions:
 STARTING_POSITIONS= [(0,0), (-20,0), (-40, 0)]
 MOVE_DISTANCE = 20
+UP = 90
+DOWN = 270
+LEFT = 180
+RIGHT = 0
 
 #Creates a three-segment snake when instantiated
 class Snake:
@@ -9,10 +13,10 @@ class Snake:
     def __init__(self):
         self.segments = []
         self.create_snake()
+        self.head = self.segments[0]
 
 
     def create_snake(self):
-        segments = [] #start as empty list and append segments as they are created below
         for position in STARTING_POSITIONS:
             new_segment = Turtle("square")
             new_segment.color("white")
@@ -29,20 +33,24 @@ class Snake:
             #new_x = segments[seg_num - 1].xcor
             #new_y = segments[seg_num - 1].ycor this doesn't work, gives error
         #need to move the first segment:
-        self.segments[0].forward(MOVE_DISTANCE)
-
+        self.head.forward(MOVE_DISTANCE)
+    #Snake can't go back on it self, needs if check:
     def up(self):
-        self.segments[0].setheading(90)        
+        if self.head.heading() != DOWN:
+            self.head.setheading(UP)        
 
 
     def down(self):
-       self.segments[0].setheading(270)
+       if self.head.heading() != DOWN:
+            self.head.setheading(UP)
 
 
     def left(self):
-        self.segments[0].setheading(180)
+        if self.head.heading() != RIGHT:
+            self.head.setheading(LEFT)
 
     def right(self):
-        self.segments[0].setheading(0)
+        if self.head.heading() != DOWN:
+            self.head.setheading(LEFT)
 
   
