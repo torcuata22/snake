@@ -18,11 +18,18 @@ class Snake:
 
     def create_snake(self):
         for position in STARTING_POSITIONS:
-            new_segment = Turtle("square")
-            new_segment.color("white")
-            new_segment.penup()
-            new_segment.goto(position)
-            self.segments.append(new_segment)
+            self.add_segment(position)
+
+    def add_segment(self, position):
+        new_segment = Turtle("square")
+        new_segment.color("white")
+        new_segment.penup()
+        new_segment.goto(position)
+        self.segments.append(new_segment)
+
+    def extend(self):
+        """Adds a new segment to the snake after it eats"""
+        self.add_segment(self.segments[-1].position())
 
     # snake needs to follow head, so loop from last to first segment 
     # #start at length(segments)-1, end at 0, step=-1:
