@@ -1,4 +1,5 @@
 from turtle import Screen, Turtle
+import time
 
 screen = Screen()
 screen.setup(width=600, height=600)
@@ -20,11 +21,14 @@ for position in starting_positions:
     segments.append(new_segment)
 
 #to get fird of blank screen after tracer off:
-screen.update() #now snake shows as one piece, no delays
+#screen.update() #now snake shows as one piece, no delays, but no movement
 game_is_on = True
 while game_is_on:
+    screen.update() #snake moves as entire piece
+    time.sleep(1) #delay one second after all three segments have moved
     for seg in segments:
         seg.forward(20)
+        
     
 
 
