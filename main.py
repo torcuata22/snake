@@ -28,10 +28,15 @@ while game_is_on:
     screen.update() 
     time.sleep(0.1) 
     snake.move()
-    #detect collision with food(eating) by using turtle distance method where x can be another instance:
+    #Detect collision with food(eating) by using turtle distance method where x can be another instance:
     if snake.head.distance(food) < 15:
         food.refresh()
         scoreboard.add_to_score()
+
+    #Detect collision with wall
+    if snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 280 or snake.head.ycor() < -280 :
+        game_is_on = False
+        scoreboard.game_over()
 
     
 
