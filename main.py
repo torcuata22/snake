@@ -1,5 +1,6 @@
-from turtle import Screen, Turtle
+from turtle import Screen
 from snake import Snake
+from food import Food
 import time
 
 screen = Screen()
@@ -10,6 +11,7 @@ screen.title("The Snake Game")
 screen.tracer(0) #turns tracer off, but you get black screen and nothing else
 
 snake = Snake()
+food = Food()
 
 screen.listen()
 screen.onkey(snake.up, "Up")
