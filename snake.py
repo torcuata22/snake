@@ -50,7 +50,7 @@ class Snake:
             self.head.setheading(LEFT)
 
     def right(self):
-        if self.head.heading() != DOWN:
-            self.head.setheading(LEFT)
+        if self.head.heading() != LEFT:
+            self.head.setheading(RIGHT)
 
   

@@ -28,7 +28,7 @@ while game_is_on:
     snake.move()
     #detect collision with food(eating) by using turtle distance method where x can be another instance:
     if snake.head.distance(food) < 15:
-        print("nom nom noms")
+        food.refresh()
 
     
 
