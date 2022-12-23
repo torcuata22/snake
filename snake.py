@@ -27,6 +27,14 @@ class Snake:
         new_segment.goto(position)
         self.segments.append(new_segment)
 
+    def reset (self):
+        for seg in self.segments:
+            seg.goto(1000,1000) #this way the old snake disappears from the screen
+        
+        self.segments.clear() #clears old snake (b/c you lost)
+        self.create_snake() #creates new snake in start position
+        self.head = self.segments[0]
+
     def extend(self):
         """Adds a new segment to the snake after it eats"""
         self.add_segment(self.segments[-1].position())
